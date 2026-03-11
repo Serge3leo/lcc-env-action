@@ -64,6 +64,7 @@ runs:
       run: |
           wget -q ${{ inputs.lcc_link }}
           shasum -a 512 ${{ inputs.lcc_tarname }}  # TODO
+          echo "${{ inputs.lcc_link-sha512 }}  ${{ inputs.lcc_tarname }}"
           echo "${{ inputs.lcc_link-sha512 }}  ${{ inputs.lcc_tarname }}" \
             | shasum --strict -a 512 -c -
           tar -xzf ${{ inputs.lcc_tarname }} -C /tmp
@@ -92,6 +93,7 @@ runs:
       run: |
         wget -q ${{ inputs.qemu_e2k_static_link }}
         shasum -a 512 qemu-e2k-static  # TODO
+        echo "${{ inputs.qemu_e2k_static_link-sha512 }}  qemu-e2k-static"
         echo "${{ inputs.qemu_e2k_static_link-sha512 }}  qemu-e2k-static" \
           | shasum --strict -a 512 -c -
         chmod +x qemu-e2k-static
