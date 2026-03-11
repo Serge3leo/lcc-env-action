@@ -41,7 +41,7 @@ runs:
       shell: bash
       run: |
         cat > common.sh <<_end_of_common_sh_
-
+        set -x
         echo Debug:start
 
         d_="https://dev.mcst.ru/downloads"
