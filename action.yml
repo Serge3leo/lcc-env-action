@@ -90,8 +90,6 @@ runs:
       shell: bash
       run: |
         wget -q ${{ inputs.qemu_e2k_static_link }}
-        shasum -a 512 qemu-e2k-static  # TODO
-        echo "${{ inputs.qemu_e2k_static_link-sha512 }}  qemu-e2k-static"
         echo "${{ inputs.qemu_e2k_static_link-sha512 }}  qemu-e2k-static" \
           | shasum --strict -a 512 -c -
         chmod +x qemu-e2k-static
