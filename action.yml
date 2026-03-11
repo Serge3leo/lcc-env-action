@@ -10,8 +10,7 @@ inputs:
     required: false
     description: Hash from https://dev.mcst.ru/downloads/2025-05-12/\
       cross-sp-rel-1.27.23.e2k-v5.5.10_64.tgz.sha512
-    default: >-
-      "5609da5afcc3b6d072786a4eb9799ce277767ec80fcc108ee276ec5af8bca581\
+    default: "5609da5afcc3b6d072786a4eb9799ce277767ec80fcc108ee276ec5af8bca581\
       1ffefa692f37e45196bcdcf87b109701bfb04c71ae0c25dfffc1f90437bd07fe"
   lcc_tarname:
     required: false
