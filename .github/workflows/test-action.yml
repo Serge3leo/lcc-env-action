@@ -33,6 +33,7 @@ jobs:
       - name: Test install lcc
         run: |
           lcc -DTEST_DEFINITIONS tests/hello.c -o hello.elf
+          lcc tests/simple_false.c -o simple_false.elf
 
       - name: Test install l++
         run: |
@@ -42,3 +43,9 @@ jobs:
         run: |
           e2k hello.elf
           e2k hello++.elf
+          if e2k simple_false.elf ; then
+            echo "simple_false.elf: must have non zero exit code" 1>&2
+            false
+          else
+            true
+          fi
