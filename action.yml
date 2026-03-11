@@ -43,8 +43,10 @@ runs:
       id: cp
       shell: bash
       run: |
+        mkdir -p /opt/mcst
+        mkdir -p /usr/local/bin
         ( echo "lcc-path=/opt/mcst"
-          echo "lcc-key=${{ env.cache-name }}-${{ inputs.lcc_dirname }}"
+          echo "lcc-key=cache-lcc-${{ inputs.lcc_dirname }}"
           echo "e2k-path=/usr/local/bin/qemu-e2k-static"
           echo "e2k-key=cache-qemu-e2k-static-${{ inputs.qemu_e2k_static_link-date }}"
         ) >> $GITHUB_OUTPUT
@@ -81,8 +83,8 @@ runs:
       id: cache-qemu-e2k-static
       uses: actions/cache/restore@v5
       with:
-        key: ${{ steps.cp.outputs.e2k-path }}
-        path: ${{ steps.cp.outputs.e2k-key }}
+        path: ${{ steps.cp.outputs.e2k-path }}
+        key: ${{ steps.cp.outputs.e2k-key }}
 
     - if: ${{ steps.cache-qemu-e2k-static.outputs.cache-hit != 'true' }}
       name: Install qemu-e2k-static
@@ -99,8 +101,8 @@ runs:
       if: steps.cache-qemu-e2k-static.outputs.cache-hit != 'true'
       uses: actions/cache/save@v5
       with:
-        key: ${{ steps.cp.outputs.e2k-path }}
-        path: ${{ steps.cp.outputs.e2k-key }}
+        path: ${{ steps.cp.outputs.e2k-path }}
+        key: ${{ steps.cp.outputs.e2k-key }}
 
     # Add symlinks to lcc
     - name: Add lcc bin dir to PATH
