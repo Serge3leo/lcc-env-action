@@ -43,7 +43,7 @@ runs:
       id: cp
       shell: bash
       run: |
-        ( echo "lcc-path=/opt/mcst
+        ( echo "lcc-path=/opt/mcst"
           echo "lcc-key=${{ env.cache-name }}-${{ inputs.lcc_dirname }}"
           echo "e2k-key=/usr/local/bin/qemu-e2k-static"
           echo "e2k-key=cache-qemu-e2k-static-${{ qemu_e2k_static_link-date }}"
