@@ -26,6 +26,7 @@ jobs:
 
       - name: Test action
         uses: ./
+        with:
           lcc_version: ${{ matrix.lcc_version }}
           qemu_e2k_version: ${{ matrix.qemu_e2k_version }}
 

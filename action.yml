@@ -1,3 +1,4 @@
+---
 name: lcc env
 description: Simple action to build and tests e2k code. This action install lcc crosscompiler and qemu-e2k-static emulator.
 author: mrognor
@@ -178,7 +179,7 @@ runs:
         . common.sh
         ln -sf "/opt/mcst/$lcc_dirname/bin/lcc" /usr/local/bin/lcc
         ln -sf "/opt/mcst/$lcc_dirname/bin/l++" /usr/local/bin/l++
-    
+
     # Add short wrapper to qemu-e2k-static
     - name: Create e2k script
       shell: bash
