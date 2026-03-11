@@ -45,8 +45,8 @@ runs:
       run: |
         ( echo "lcc-path=/opt/mcst"
           echo "lcc-key=${{ env.cache-name }}-${{ inputs.lcc_dirname }}"
-          echo "e2k-key=/usr/local/bin/qemu-e2k-static"
-          echo "e2k-key=cache-qemu-e2k-static-${{ qemu_e2k_static_link-date }}"
+          echo "e2k-path=/usr/local/bin/qemu-e2k-static"
+          echo "e2k-key=cache-qemu-e2k-static-${{ inputs.qemu_e2k_static_link-date }}"
         ) >> $GITHUB_OUTPUT
 
     # Get lcc from github actions cache or download it from mcst.dev and save to cache
