@@ -18,12 +18,16 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-22.04, ubuntu-latest, ubuntu-slim]
+        lcc_version: [1.29.12, 1.27.23]
+        qemu_e2k_version: ["1.0", "1.1"]
 
     steps:
       - uses: actions/checkout@v6
 
       - name: Test action
         uses: ./
+          lcc_version: ${{ matrix.lcc_version }}
+          qemu_e2k_version: ${{ matrix.qemu_e2k_version }}
 
       - name: Test install lcc
         run: |

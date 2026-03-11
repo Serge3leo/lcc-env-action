@@ -43,8 +43,7 @@ runs:
         d="https://dev.mcst.ru/downloads"
 
         cat > common.sh <<_end_of_common_sh_
-        set -x
-        echo Debug:start
+        # set -x  # Enable for debug trace
 
         case "${{ inputs.lcc_version }}" in
           1.29.12)
@@ -105,7 +104,6 @@ runs:
         if [ -n "${{ inputs.qemu_e2k_static_sha512 }}" ] ; then
           qemu_e2k_static_sha512="${{ inputs.qemu_e2k_static_sha512 }}"
         fi
-        echo "== Common variable setted =="
         _end_of_common_sh_
 
         . common.sh
