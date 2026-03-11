@@ -134,7 +134,7 @@ runs:
         wget -q "$lcc_link"
         echo "$lcc_sha512 }}  $lcc_tarname" \
           | shasum --strict -a 512 -c -
-        tar -xzf "$inputs.lcc_tarname" -C /tmp
+        tar -xzf "$lcc_tarname" -C /tmp
         mv /tmp/opt/mcst /opt
         rm -r "$lcc_tarname" /tmp/opt
 
