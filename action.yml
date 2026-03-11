@@ -40,21 +40,22 @@ runs:
       id: cp
       shell: bash
       run: |
+        d="https://dev.mcst.ru/downloads"
+
         cat > common.sh <<_end_of_common_sh_
         set -x
         echo Debug:start
 
-        d_="https://dev.mcst.ru/downloads"
         case "${{ inputs.lcc_version }}" in
           1.29.12)
-            lcc_link="$d_/2025-06-27/cross-sp-1.29.12.e2k-v6.2c3.linux-6.1_64.tgz"
+            lcc_link="$d/2025-06-27/cross-sp-1.29.12.e2k-v6.2c3.linux-6.1_64.tgz"
             lcc_tarname="cross-sp-1.29.12.e2k-v6.2c3.linux-6.1_64.tgz"
             lcc_dirname="lcc-1.29.12.e2k-v6.2c3.linux-6.1"
             lcc_sha512="ddf87a57fa5a250bbf9351ab020e10b4f5a442139b8d9401dc79426bb9c94699\
         5228624d2c1a9b272828c5b8b95b1053e26a35ff45b4e599c3336f5b55a82a48"
             ;;
           1.27.23)
-            lcc_link="$d_/2025-05-12/cross-sp-rel-1.27.23.e2k-v5.5.10_64.tgz"
+            lcc_link="$d/2025-05-12/cross-sp-rel-1.27.23.e2k-v5.5.10_64.tgz"
             lcc_tarname="cross-sp-rel-1.27.23.e2k-v5.5.10_64.tgz"
             lcc_dirname="lcc-1.27.23.e2k-v5.5.10"
             lcc_sha512="5609da5afcc3b6d072786a4eb9799ce277767ec80fcc108ee276ec5af8bca581\
@@ -79,13 +80,13 @@ runs:
         fi
         case "${{ inputs.qemu_e2k_version }}" in
           1.1)
-            qemu_e2k_static_link="$d_/2026-02-24/qemu-e2k-static"
+            qemu_e2k_static_link="$d/2026-02-24/qemu-e2k-static"
             qemu_e2k_static_date="2026-02-24"
             qemu_e2k_static_sha512="185c32335d23193c699a3af2606d46af72c7cd44f9a6c7d41fa0ac7da4481d77\
         1ad9f41d158b1f869e4eef8aec2de375e8ebabe08eaf4e776653f524aa3d2d43"
             ;;
           1.0)
-            qemu_e2k_static_link="$d_/2025-12-26/qemu-e2k-static"
+            qemu_e2k_static_link="$d/2025-12-26/qemu-e2k-static"
             qemu_e2k_static_date="2025-12-26"
             qemu_e2k_static_sha512="4ce9a9e6a29f3ad55e57cd5565560bc2b51dfb4b725141b475505596d71d4e38\
         1063a00c4256c553e911aecbd03963f65a14c2d299f7d6af6ac0d09982b59a01"
