@@ -57,7 +57,7 @@ runs:
             lcc_sha512="df093b63545aba0c733bf0d31d6d1cf47ab978a36b31b96f90ef2a442aa23eb0\
         c4695937d1787bf0128030bc3136786562c63d592c8b531dab40592aea8eeab7"
             lcc_link="$d/2026-03-13/cross-sp-public-osl-1.29.16.e2k-v5.linux-6.1_64.tgz"
-            lcc_tarname="\$(basename \"\$lcc_link\")"
+            lcc_tarname="\$(basename \$lcc_link)"
             lcc_dirname="lcc-1.29.16.e2k-v5.linux-6.1"
             lcc_sha512="45043cfa6a1f6c83ea10e9bcfd0b97538cb56e6904b0dfd2e816df411bbd3dbbf78f317b68a8f8f3e4cdb02fb7f6d0372e0dcbbca09059d51be29d141f3c0ee3"
             ;;
