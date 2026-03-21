@@ -25,6 +25,16 @@ jobs:
               'enable-os1') }}
           - os: ${{ case(contains(vars.DISABLE, 'ubuntu-slim'), 'ubuntu-slim',
               'enable-os2') }}
+          - lcc_version: ${{ case(contains(vars.DISABLE, '1.27.23'), '1.27.23',
+              'enable-lcc1') }}
+          - lcc_version: ${{ case(contains(vars.DISABLE, '1.29.12'), '1.29.12',
+              'enable-lcc2') }}
+          - lcc_version: ${{ case(contains(vars.DISABLE, '1.29.16'), '1.29.16',
+              'enable-lcc3') }}
+          - qemu_e2k_version: ${{ case(contains(vars.DISABLE, '1.0'), '1.0',
+              'enable-e2k1') }}
+          - qemu_e2k_version: ${{ case(contains(vars.DISABLE, '1.1'), '1.1',
+              'enable-e2k2') }}
 
     steps:
       - uses: actions/checkout@v6
