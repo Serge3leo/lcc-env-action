@@ -120,18 +120,6 @@ runs:
           echo "e2k-key=cache-qemu-e2k-static-$qemu_e2k_static_date"
         ) >> $GITHUB_OUTPUT
 
-    - name: "Cache parameters: keys & paths"
-      id: cp
-      shell: bash
-      run: |
-        mkdir -p /opt/mcst
-        mkdir -p /usr/local/bin
-        ( echo "lcc-path=/opt/mcst"
-          echo "lcc-key=cache-lcc-${{ inputs.lcc_dirname }}"
-          echo "e2k-path=/usr/local/bin/qemu-e2k-static"
-          echo "e2k-key=cache-qemu-e2k-static-${{ inputs.qemu_e2k_static_link-date }}"
-        ) >> $GITHUB_OUTPUT
-
     # Get lcc from github actions cache or download it from mcst.dev and save to cache
     - name: Restore cache lcc crosscompiler
       id: cache-lcc
