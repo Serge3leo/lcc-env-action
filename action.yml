@@ -50,6 +50,13 @@ runs:
         # set -x  # Enable for debug trace
 
         case "${{ inputs.lcc_version }}" in
+          1.29.16)
+            lcc_link="$d/2026-03-13/cross-sp-public-osl-1.29.16.e2k-v6.2c3.linux-6.1_64.tgz"
+            lcc_tarname="cross-sp-public-osl-1.29.16.e2k-v6.2c3.linux-6.1_64.tgz"
+            lcc_dirname="lcc-1.29.16.e2k-v6.2c3.linux-6.1"
+            lcc_sha512="df093b63545aba0c733bf0d31d6d1cf47ab978a36b31b96f90ef2a442aa23eb0\
+        c4695937d1787bf0128030bc3136786562c63d592c8b531dab40592aea8eeab7"
+            ;;
           1.29.12)
             lcc_link="$d/2025-06-27/cross-sp-1.29.12.e2k-v6.2c3.linux-6.1_64.tgz"
             lcc_tarname="cross-sp-1.29.12.e2k-v6.2c3.linux-6.1_64.tgz"
@@ -134,7 +141,7 @@ runs:
       shell: bash
       run: |
         . "${{ steps.cp.outputs.common_sh }}"
-        wget -q "$lcc_link"
+        wget --no-check-certificate --progress=dot:giga "$lcc_link"
         echo "$lcc_sha512  $lcc_tarname" \
           | shasum --strict -a 512 -c -
         tar -xzf "$lcc_tarname" -C /tmp
@@ -162,7 +169,7 @@ runs:
       shell: bash
       run: |
         . "${{ steps.cp.outputs.common_sh }}"
-        wget -q "$qemu_e2k_static_link"
+        wget --no-check-certificate --progress=dot:giga "$qemu_e2k_static_link"
         echo "$qemu_e2k_static_sha512  qemu-e2k-static" \
           | shasum --strict -a 512 -c -
         chmod +x qemu-e2k-static
