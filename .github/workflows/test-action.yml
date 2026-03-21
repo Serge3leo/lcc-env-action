@@ -7,9 +7,9 @@ name: Tests `lcc-env-action`
 
 on:  # yamllint disable-line rule:truthy
   push:
-    branches: ["main"]
+    branches: [main]
   pull_request:
-    branches: ["main"]
+    branches: [main]
 
 jobs:
   build:
@@ -18,8 +18,11 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-22.04, ubuntu-latest, ubuntu-slim]
-        lcc_version: [1.29.12, 1.27.23]
+        lcc_version: [1.27.23, 1.29.12, 1.29.16]
         qemu_e2k_version: ["1.0", "1.1"]
+        exclude:
+          os: ${{ !contains(vars.DISABLE, "ubuntu-22.04")  "ubuntu-22.04"}}
+          os: ${{ !contains(vars.DISABLE, "ubuntu-slim")  "ubuntu-slim"}}
 
     steps:
       - uses: actions/checkout@v6
