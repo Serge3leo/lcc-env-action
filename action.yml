@@ -59,8 +59,7 @@ runs:
             lcc_link="$d/2026-03-13/cross-sp-public-osl-1.29.16.e2k-v5.linux-6.1_64.tgz"
             lcc_tarname="`basename \"$lcc_link\"`"
             lcc_dirname="lcc-1.29.16.e2k-v5.linux-6.1"
-            lcc_sha512="45043cfa6a1f6c83ea10e9bcfd0b97538cb56e6904b0dfd2e816df411bbd3dbb\
-        f78f317b68a8f8f3e4cdb02fb7f6d0372e0dcbbca09059d51be29d141f3c0ee3"
+            lcc_sha512="45043cfa6a1f6c83ea10e9bcfd0b97538cb56e6904b0dfd2e816df411bbd3dbbf78f317b68a8f8f3e4cdb02fb7f6d0372e0dcbbca09059d51be29d141f3c0ee3"
             ;;
           1.29.12)
             lcc_link="$d/2025-06-27/cross-sp-1.29.12.e2k-v6.2c3.linux-6.1_64.tgz"
@@ -147,6 +146,7 @@ runs:
       run: |
         . "${{ steps.cp.outputs.common_sh }}"
         wget --no-check-certificate --progress=dot:giga "$lcc_link"
+        echo "$lcc_sha512  $lcc_tarname"
         echo "$lcc_sha512  $lcc_tarname" \
           | shasum --strict -a 512 -c -
         tar -xzf "$lcc_tarname" -C /tmp
