@@ -21,8 +21,10 @@ jobs:
         lcc_version: [1.27.23, 1.29.12, 1.29.16]
         qemu_e2k_version: ["1.0", "1.1"]
         exclude:
-          os: ${{ !contains(vars.DISABLE, "ubuntu-22.04")  "ubuntu-22.04"}}
-          os: ${{ !contains(vars.DISABLE, "ubuntu-slim")  "ubuntu-slim"}}
+          os: "ubuntu-22.04${{ case(!contains(vars.DISABLE, 'ubuntu-22.04',
+            '', 'not')) }}"
+          os: "ubuntu-slim${{ case(!contains(vars.DISABLE, 'ubuntu-slim',
+            '', 'not')) }}"
 
     steps:
       - uses: actions/checkout@v6
