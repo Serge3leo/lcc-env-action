@@ -22,9 +22,9 @@ jobs:
         qemu_e2k_version: ["1.0", "1.1"]
         exclude:
           - os: ${{ case(contains(vars.DISABLE, 'ubuntu-22.04'), 'ubuntu-22.04',
-              "enable-os1") }}
+              'enable-os1') }}
           - os: ${{ case(contains(vars.DISABLE, 'ubuntu-slim'), 'ubuntu-slim',
-              "enable-os2") }}
+              'enable-os2') }}
 
     steps:
       - uses: actions/checkout@v6
